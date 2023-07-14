@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Lâmpada Dinâmica</h1>
+    <img src="OFF.jpg" id="luz"><br>
+    <button id="btn" onclick="acender()">Acender</button>
+    <button id="btn" onclick="apagar()">Apagar</button>
+    <button id="btn" onclick="quebrar()">Quebrar</button>
+    <button id="btn" onclick="trocar()">Trocar</button>
+    <button id="btn" onclick="piscar()">Piscar</button>
+    <script>
+
+        let lampada = document.querySelector('#luz')
+
+        lampada.addEventListener("click", quebrar)
+        lampada.addEventListener("mouseover", acender)
+        lampada.addEventListener("mouseout", apagar)
+
+       
+        function acender() {
+            lampada.src = 'ON.jpg'
+        }
+        function apagar() {
+            lampada.src = 'OFF.jpg'
+
+        }
+        function quebrar()
+        {
+            lampada.src = 'QUEBRADA.jpg'
+           
+        }
+        function trocar() {
+            lampada.src = 'OFF.jpg'
+        }
+        function piscar() {       
+            let intervalo = 0
+            let contador = 0
+            while(contador < 10){ 
+                intervalo +=300
+            setTimeout("document.querySelector('#luz').src='OFF.jpg';" , intervalo)
+                intervalo +=300
+            setTimeout("document.querySelector('#luz').src='ON.jpg';" , intervalo)
+                contador++
+            }
+        }
+        
+    </script>
+</body>
+</html>
